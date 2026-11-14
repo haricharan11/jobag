@@ -24,7 +24,7 @@ python agent.py report         # print today's audit markdown
 
 Testing a single change: there are no tests. Use `preview` to check resume layout offline, and `check-sources` to check fetchers against live feeds. Running `run` spends real API money (capped by `monthly_budget_usd`), so prefer `check-sources` or a stubbed call when iterating.
 
-`run_daily.bat` / `run_daily.sh` wrap `agent.py run` for Task Scheduler/cron and append to `logs/daily.log`.
+`run_daily.bat` / `run_daily.sh` wrap `agent.py run` for Task Scheduler/cron and append to `logs/daily.log`. `.github/workflows/daily.yml` runs the same pipeline daily on GitHub Actions (key from the `ANTHROPIC_API_KEY` repo secret, `data/` carried between runs via the Actions cache, results uploaded as an artifact).
 
 ## Architecture
 
@@ -47,6 +47,7 @@ Outputs are written under `output/resumes/<date>_<company>_<title>/` (PDF plus `
 - `config.yaml` is the single place for behaviour: profile, form answers, search filters, company slugs under `sources`, model and cost settings, and `apply.mode` (`review` submits nothing automatically; `auto` submits only for greenhouse/lever/ashby, capped by `max_per_day`).
 - `resume_master.json` is the only source of resume facts. Experience bullets have stable `id`s (`a…`/`b…`) that the plan references, so never renumber existing ids. New bullets get new ids.
 - Secrets: `ANTHROPIC_API_KEY` comes from `.env` (copied from `.env.example`).
+- Only the four ATS feeds above are supported. Large employers (Workday, SuccessFactors, iCIMS, Avature, Eightfold, Oracle Cloud, or in-house portals) cannot be added via `add-company`; Workday's public jobs API mostly blocks scripted requests.
 
 ### Things that are easy to get wrong
 

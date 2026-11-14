@@ -2,7 +2,7 @@ name: Daily job agent
 
 on:
   schedule:
-    - cron: "30 3 */2 * *"   # 03:30 UTC = 09:00 IST
+    - cron: "30 3 * * *"   # 03:30 UTC = 09:00 IST
   workflow_dispatch:       # allow manual runs from the Actions tab
 
 permissions:
@@ -50,6 +50,7 @@ jobs:
         with:
           name: jobag-${{ github.run_id }}
           path: |
+            data/
             audit/
             output/
             logs/

@@ -1,0 +1,7 @@
+.env
+data/
+output/
+audit/
+logs/
+.venv/
+__pycache__/

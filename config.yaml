@@ -1,0 +1,88 @@
+# ============================================================
+#  Job Agent config — edit this file, not the code.
+# ============================================================
+
+# Used to fill application forms. No AI tokens are spent on these.
+profile:
+  first_name: "Haricharan"        # check: how you want first/last split on forms
+  last_name: "Poduri"
+  full_name: "Poduri V Haricharan"
+  email: "haricharanpoduri@gmail.com"
+  phone: "+91 90872 32425"
+  linkedin: "https://linkedin.com/in/haricharan-poduri"
+  location: "Bangalore, India"
+  country: "India"
+  current_company: "Temenos India Pvt Ltd"
+
+# "How many years of experience..." questions. Only skills listed here get answered.
+# A question about any other skill (e.g. "years using Angular") goes to NEEDS_YOU
+# instead of reusing your total, so the agent never overstates your experience.
+experience_years:
+  total: 5
+  react: 5
+  typescript: 5
+  javascript: 5
+
+# Extra form questions, matched by label text (case-insensitive, partial match).
+# Leave a value as "" and the agent will NOT guess — the job goes to your
+# "NEEDS_YOU" list instead. Fill these in to let more applications go through.
+answers:
+  "notice period": "90 days"
+  "current ctc": "₹12,80,000 per annum"
+  "current salary": ""
+  "expected ctc": "20,00,000 per annum"
+  "expected salary": ""
+  "expected pay": ""
+  "located in bangalore": "Yes"
+  "located in bengaluru": "Yes"
+  "ai tool": "GitHub Copilot and Claude"
+  "authorized to work in india": "Yes"
+  "authorised to work in india": "Yes"
+  "require sponsorship": "No"
+  "how did you hear": "Company careers page"
+
+# Free keyword pre-filter. Runs BEFORE the AI, so rejected jobs cost nothing.
+search:
+  title_include: [react, frontend, front-end, front end, ui engineer, ui developer,
+                  web developer, full stack, fullstack, full-stack, product engineer,
+                  software engineer, sde]
+  title_exclude: [intern, internship, principal, director, manager, head of, ios,
+                  android, react native, flutter, data scientist, qa, sdet,
+                  test engineer, devops, staff, salesforce, angular]
+  locations: [bangalore, bengaluru, karnataka, india, remote, apac, asia,
+              anywhere, worldwide]
+  max_age_days: 21            # ignore postings older than this (when date is known)
+
+# Where to look: Indian companies' own career boards, read through the official
+# public feeds of the job-board software they use (no scraping, no login).
+# Easiest way to add a company:  python agent.py add-company <careers page URL>
+# Run `python agent.py check-sources` to verify every entry.
+sources:
+  # Groww, Razorpay, InMobi, Druva, Easyship (Bangalore office), AI Squared
+  greenhouse: [groww, razorpaysoftwareprivatelimited, inmobi, druva, easyship, aisquared]
+  # Meesho, CRED, Paytm, Zeta, Mindtickle, FamPay, Pocket FM, Nielsen India, Netomi, Plane
+  lever: [meesho, cred, paytm, zeta, mindtickle, fampay, pocketfm, nielsen, netomi, plane]
+  # Atlan, SpotDraft
+  ashby: [atlan, spotdraft]
+  # Swiggy, Freshworks
+  smartrecruiters: [Swiggy, Freshworks]
+  remotive: false             # global remote board; mostly non-India roles, so off by default
+
+ai:
+  model: "claude-haiku-5-5"   # cheap + fast. Use claude-sonnet-5-5 for better tailoring.
+  min_score: 70               # jobs scoring below this are skipped (costs ~10 output tokens)
+  max_output_tokens: 300      # hard cap per job
+  max_jd_chars: 15000         # job description length sent to the model
+  max_jobs_scored_per_run: 40
+  monthly_budget_usd: 15      # agent stops calling the API when this month's spend hits this
+  # Used only for the cost column in your audit. Update from the official pricing page.
+  price_per_mtok_input: 1.0
+  price_per_mtok_output: 5.0
+
+apply:
+  # review: prepare tailored resumes + a queue; you submit with `python agent.py apply`
+  # auto:   submit automatically when every required field can be filled;
+  #         anything else lands in NEEDS_YOU
+  mode: "review"
+  max_per_day: 15
+  headless: true              # auto mode only; `apply` command always shows the browser

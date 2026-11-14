@@ -1,0 +1,60 @@
+{
+  "name": "Poduri V Haricharan",
+  "headline": "Senior React Developer · Product Engineer",
+  "contact": {
+    "email": "haricharanpoduri@gmail.com",
+    "phone": "+91 90872 32425",
+    "linkedin": "linkedin.com/in/haricharan-poduri",
+    "location": "Bangalore, IN"
+  },
+  "summary": "Full-stack product engineer with 5+ years building scalable, high-performance web applications using React.js, TypeScript, Hooks, and Context API, backed by Java/Spring Boot RESTful services and PostgreSQL. Proven record owning features end-to-end — from technical design through delivery — partnering with UX, product, and backend engineers in agile sprints. Drives code quality through rigorous code reviews and an 80% test-coverage bar (Vitest, Web Test Runner). Actively leverages AI-assisted development tools (GitHub Copilot, Claude) to accelerate coding, testing, and review cycles. Strong in monorepo build optimization, CI/CD automation, and translating complex domain constraints (regulated banking workflows on Temenos T24) into simplified, secure user experiences.",
+  "skills": [
+    {"name": "Frontend", "items": "React.js, React Hooks, Context API, TypeScript, JavaScript (ES6+), Lit, HTML5, CSS3, SCSS, Responsive Design, Component Architecture"},
+    {"name": "Backend & APIs", "items": "Java, Spring Boot, Microservices, Node.js, Express.js, Axios, RESTful APIs, Swagger/OpenAPI, JWT"},
+    {"name": "Databases", "items": "PostgreSQL, Spring Data JPA, Relational Schema Design"},
+    {"name": "Build & Tooling", "items": "Webpack, Lerna, NPM, Monorepo Management"},
+    {"name": "Testing & QA", "items": "Vitest, Web Test Runner, Jest, Cypress, Unit & Integration Testing, BDD, Coverage Reporting (Cobertura, LCOV), Code Reviews"},
+    {"name": "DevOps & Cloud", "items": "Docker, Jenkins, GitLab CI/CD, Bitbucket Pipelines, Azure, Azure DevOps"},
+    {"name": "Collaboration", "items": "Git, GitHub, GitLab, Bitbucket, JIRA, Agile/Scrum, Cross-functional Teamwork"},
+    {"name": "Domain & Other", "items": "Temenos T24 (Transact), Kony Visualizer, Kony Fabric, Performance Optimization, Software Debugging, AI-assisted Development (GitHub Copilot, Claude), DSA"}
+  ],
+  "experience": [
+    {
+      "company": "Temenos India Pvt Ltd",
+      "location": "Bangalore, IN",
+      "roles": [
+        {
+          "key": "a",
+          "title": "Product Engineer",
+          "dates": "Jul 2022 – Present",
+          "bullets": [
+            {"id": "a1", "text": "Engineered modular, scalable UI components in React.js, TypeScript, Hooks, and Context API — with deliberate attention to state management, component architecture, and web performance optimization — across a Temenos T24 banking application, reducing code duplication and improving long-term maintainability."},
+            {"id": "a2", "text": "Owned end-to-end delivery of feature modules from design through ship and post-release maintenance, partnering with UX designers, product managers, and backend engineers across agile sprints to translate business requirements into technical specifications."},
+            {"id": "a3", "text": "Optimized monorepo build performance using Webpack and Lerna, reducing build times by approximately 60% and accelerating developer feedback loops."},
+            {"id": "a4", "text": "Designed and consumed RESTful APIs via Swagger/OpenAPI contracts backed by PostgreSQL schemas, collaborating with backend engineers on data modeling, query performance, and Spring Boot microservice implementation."},
+            {"id": "a5", "text": "Established a two-runner unit test architecture (Vitest plus Web Test Runner) for services, state, and Lit web components, aligned with the 80% line/method coverage quality bar."},
+            {"id": "a6", "text": "Authored unit and integration tests across multiple feature packages and built shared test helpers, lifting coverage and cutting duplicate setup team-wide."},
+            {"id": "a7", "text": "Designed Jenkins gating logic and Bitbucket PR build automation, enabling per-branch test/coverage triggers and clean skips on branches without test infrastructure."},
+            {"id": "a8", "text": "Presented integration framework and CI/CD pipeline architectures at internal design reviews, driving alignment across frontend, backend, and DevOps stakeholders."},
+            {"id": "a9", "text": "Mentored junior engineers and conducted code reviews, raising team-wide code quality and accelerating onboarding."},
+            {"id": "a10", "text": "Automated CI/CD on Docker, Jenkins, and Azure DevOps, cutting release time by 25% and eliminating manual deployment steps."},
+            {"id": "a11", "text": "Implemented token-based JWT authentication, integrated in-UI Git operations for GitLab/Bitbucket workflows, and leveraged AI tooling (GitHub Copilot, Claude) to accelerate refactoring and reviews."}
+          ]
+        },
+        {
+          "key": "b",
+          "title": "Software Engineer",
+          "dates": "Jul 2021 – Jul 2022",
+          "bullets": [
+            {"id": "b1", "text": "Built interactive UI components with Kony Visualizer and JavaScript, and developed REST API integrations on Kony Fabric for core banking services."},
+            {"id": "b2", "text": "Gained hands-on knowledge of T24 banking systems and end-to-end financial workflows, enabling domain-driven frontend development."},
+            {"id": "b3", "text": "Supported Spring Boot microservices development and validation, contributing to API design and service testing."}
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {"degree": "Bachelor of Technology, Computer Science Engineering", "school": "SRM Institute of Science and Technology, Kattankulathur", "dates": "2017 – 2021"}
+  ]
+}

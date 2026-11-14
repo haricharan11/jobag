@@ -1,0 +1,57 @@
+name: Daily job agent
+
+on:
+  schedule:
+    - cron: "30 3 */2 * *"   # 03:30 UTC = 09:00 IST
+  workflow_dispatch:       # allow manual runs from the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # data/jobs.json holds the job state that stops re-scoring of old postings.
+      # Restore the latest copy from the previous run; save a new one after this run.
+      - name: Restore job state
+        uses: actions/cache/restore@v4
+        with:
+          path: data
+          key: jobag-data-${{ github.run_id }}
+          restore-keys: |
+            jobag-data-
+
+      - name: Run pipeline
+        run: python agent.py run
+
+      - name: Save job state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data
+          key: jobag-data-${{ github.run_id }}
+
+      - name: Upload audit and resumes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jobag-${{ github.run_id }}
+          path: |
+            audit/
+            output/
+            logs/
+          if-no-files-found: ignore
+          retention-days: 30
